@@ -1,0 +1,5 @@
+.DS_Store
+lambda-code/src/*.zip
+lambda-layer/src/myenv/*
+lambda-layer/src/python
+lambda-layer/src/*.zip
