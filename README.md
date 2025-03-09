@@ -5,8 +5,6 @@
 
 ## Table of Contents
 
-## Table of Contents
-
 - [About the Project](#about-the-project)
 - [Architecture](#architecture)
 - [Prerequisites](#prerequisites)
@@ -18,7 +16,8 @@
 
 ---
 
-# AWS Private Only VPC
+## AWS Workshop - Serverless Patterns : Lab 01  [![AWS](https://img.shields.io/badge/AWS-Workshop-orange?style=flat-square&logo=amazon-aws&logoColor=FFFFFF&labelColor=3A3B3C&color=FF9900)](https://catalog.workshops.aws/serverless-patterns/en-US)
+
 
 This project demonstrates the creation of an AWS Private Only VPC using AWS CloudFormation. The VPC is designed to host resources that do not require direct internet access, ensuring a secure and isolated environment. Key features include:
 
@@ -33,10 +32,30 @@ This setup is ideal for workloads that require enhanced security and compliance,
 
 Below is the architecture of the application:
 
-![AWS Architecture](./architecture-diagram/private-vpc.jpg) <!-- Replace with the actual path to the diagram -->
+```mermaid
+sequenceDiagram
+    participant Client as Client (Web/Mobile App)
+    participant API as API Gateway
+    participant Lambda as AWS Lambda
+    participant DB as Amazon DynamoDB
+
+    Client->>API: Send HTTP Request (POST/GET)
+    API->>Lambda: Invoke Lambda Function
+    Lambda->>DB: Perform Read/Write Operation
+    DB-->>Lambda: Return Response
+    Lambda-->>API: Return Processed Response
+    API-->>Client: Return API Response
+
+```
+#### Infrastructure
+
+![Architecture Diagram](architecture-diagram/architecture-diagram.jpg)
 
 ### AWS Services Used
-- **Amazon VPC**: Isolated network environment for resources.
+- **Amazon VPC**
+- **Amazon Lambda**:
+- **Amazon DynamoDB**
+- **Amazon API Gateway**
 
 ---
 
